@@ -156,7 +156,7 @@ func Announce(w http.ResponseWriter, r *http.Request) {
 
 	for _, email := range userEmails {
 		fmt.Println(email)
-		SendMail(email, subject, text)
+		go SendMail(email, subject, text)
 	}
 
 	sendMessage(w, http.StatusOK, "Announcement sent successfully to all users")
